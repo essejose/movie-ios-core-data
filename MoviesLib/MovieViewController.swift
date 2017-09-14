@@ -20,25 +20,39 @@ class MovieViewController: UIViewController {
     @IBOutlet weak var lcButtonX: NSLayoutConstraint!
     
     //Variável que receberá o filme selecionado na tabela
-    //var movie: Movie!
+     var movie: Movie!
+    
     
     // MARK: Super Methods
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad()        
+    }
+    
+    // MARK: Super Methods
+    override func viewWillAppear(_ animated: Bool) {
         
         //Alimentando as IBOutlets com as informações dos filmes
         /*
-        ivPoster.image = UIImage(named: movie.imageWide)
+         ivPoster.image = UIImage(named: movie.imageWide)
+         */
         lbTitle.text = movie.title
-        lbGenre.text = movie.categoriesDescription
+        //lbGenre.text = movie.categoriesDescription
         lbDuration.text = movie.duration
         lbScore.text = "⭐️ \(movie.rating)/10"
         tvSinopsis.text = movie.summary
-        */
+        
     }
     
     //Dessa forma, podemos voltar à tela anterior
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? MovieRegisterViewController{
+            
+            vc.movie = movie
+        }
     }
 }

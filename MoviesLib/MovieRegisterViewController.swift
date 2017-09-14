@@ -25,7 +25,7 @@ class MovieRegisterViewController: UIViewController {
     @IBOutlet weak var btAddUpdate: UIButton!
  
     
-    @IBAction func close(_ sender: UIButton) {
+    @IBAction func close(_ sender: UIButton?) {
         
         dismiss(animated: true, completion: nil)
         
@@ -38,8 +38,24 @@ class MovieRegisterViewController: UIViewController {
         if movie == nil {
         
             movie = Movie(context: context)
+            
+            
+        }
+        
+        movie.title = tfTitle.text
+        movie.rating = Double(tfRating.text!)!
+        movie.summary = tfSummary.text
+        movie.duration = tfDuration.text
+        
+        do{
+            try context.save()
+        
+        } catch{
+            print(error.localizedDescription)
         }
     
+        close(nil)
+        
     }
     
     
@@ -51,6 +67,16 @@ class MovieRegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if movie != nil {
+            tfTitle.text = movie.title
+            tfRating.text = "\(movie.rating)"
+            tfDuration.text = movie.duration
+            tfSummary.text = movie.summary
+            btAddUpdate.setTitle("Atualizar", for: .normal)
+        
+        }
+        
+        
         // Do any additional setup after loading the view.
     }
 
