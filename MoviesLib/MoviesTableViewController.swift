@@ -14,56 +14,44 @@ class MoviesTableViewController: UITableViewController {
     //Criando nossa label que será a backgroundView da tabela
     var label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 22))
     
-    
-  var fetchedResultController: NSFetchedResultsController<Movie>!
-    
+    var fetchedResultController: NSFetchedResultsController<Movie>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.estimatedRowHeight = 106  //Definindo um tamanho base para o cálculo do tamanho final
         tableView.rowHeight = UITableViewAutomaticDimension //Definindo que o tamanho será dinâmico
+        
+
 
         //Definindo os valores das propriedades da lavel
         label.text = "Sem filmes"
         label.textAlignment = .center
         label.textColor = .white
         
-        
         loadMovies()
+        
     }
     
+
     
     func loadMovies(){
-    
-        let fetchRequest : NSFetchRequest<Movie> = Movie.fetchRequest()
-        
-        
-        let sortDescriptor =  NSSortDescriptor(key: "title", ascending: true)
+        let fetchRequest: NSFetchRequest<Movie> = Movie.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "title", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
+        fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         
-        
-        
-        fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest,
-                                                                managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-        
-        
+
         
         fetchedResultController.delegate = self
-        
         try! fetchedResultController.performFetch()
-    
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? MovieViewController{
-        
-             //vc.movie
             vc.movie = fetchedResultController.object(at: tableView.indexPathForSelectedRow!)
-            
         }
-        
-        
     }
     
 
@@ -80,18 +68,11 @@ class MoviesTableViewController: UITableViewController {
         //Caso nosso dataSource seja 0, teremos a label aparecendo.
         //tableView.backgroundView = dataSource.count == 0 ? label : nil
         //return dataSource.count //Retornamos o total de itens no nosso dataSource
-        
-        
-        
-        if let count = fetchedResultController.fetchedObjects?.count{
-        
+        if let count = fetchedResultController.fetchedObjects?.count {
             return count
-        
         }else{
-        
             return 0
         }
-        
     }
     
     //Método que define a célula que será apresentada em cada linha
@@ -102,21 +83,11 @@ class MoviesTableViewController: UITableViewController {
         //IBOutlets criados
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath) as! MovieTableViewCell
         
-        //Atribuindo os valores de acordo com os dados recuperados de cada Movie
-        //Recuperamos o Movie usando a propriedade row do indexPath da célula em questão
-        /*
-        cell.ivPoster.image = UIImage(named: dataSource[indexPath.row].imageSmall)
-        cell.lbTitle.text = dataSource[indexPath.row].title
-        cell.lbRating.text = "\(dataSource[indexPath.row].rating)"
-        cell.lbSummary.text = dataSource[indexPath.row].summary
-        */
         
-        
-        let  movie = fetchedResultController.object(at: indexPath)
+        let movie = fetchedResultController.object(at: indexPath)
         cell.lbTitle.text = movie.title
         cell.lbSummary.text = movie.summary
         cell.lbRating.text = "\(movie.rating)"
-        
         
         return cell
     }
@@ -130,20 +101,15 @@ class MoviesTableViewController: UITableViewController {
     */
     
     // Override to support editing the table view.
-   
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            
-            let  movie = fetchedResultController.object(at: indexPath)
-            
-            context.delete(movie)
-            
-            try! context.save()
-            
-            
             // Delete the row from the data source
+            
+            let movie = fetchedResultController.object(at: indexPath)
+            context.delete(movie)
+            try! context.save()
             //tableView.deleteRows(at: [indexPath], with: .fade)
-        }   
+        }
     }
     
 
@@ -171,17 +137,10 @@ class MoviesTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
 
 }
-
-
 extension MoviesTableViewController: NSFetchedResultsControllerDelegate{
-    
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.reloadData()
+        tableView.reloadData()    
     }
-    
 }
-
-

@@ -442,6 +442,9 @@
                                 <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="AddPoster:" destination="hbr-2B-Ggk" eventType="touchUpInside" id="PQy-7i-AT4"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WAX-wc-DAp">
                                 <rect key="frame" x="256" y="19" width="48" height="30"/>
@@ -505,6 +508,11 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="505"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="mcp-gG-Fy9">
+                                    <rect key="frame" x="0.0" y="72" width="320" height="4"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="axL-pc-X1e" style="IBUITableViewCellStyleDefault" id="sCu-3G-5Tc">
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
@@ -552,7 +560,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vdl-Jx-OLh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3979" y="245"/>
+            <point key="canvasLocation" x="3978.75" y="244.01408450704227"/>
         </scene>
         <!--Filmes-->
         <scene sceneID="Ded-4h-hwJ">

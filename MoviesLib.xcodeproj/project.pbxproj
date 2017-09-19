@@ -50,6 +50,7 @@
 		AC0CCF3A1F69EE44008F4FDE /* MovieRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CCF391F69EE44008F4FDE /* MovieRegisterViewController.swift */; };
 		AC0CCF3C1F69EE6B008F4FDE /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CCF3B1F69EE6B008F4FDE /* CategoriesViewController.swift */; };
 		AC0CCF3E1F69F7DE008F4FDE /* UIViewController+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CCF3D1F69F7DE008F4FDE /* UIViewController+CoreData.swift */; };
+		AC788D9A1F70A58900B37B04 /* Movie+Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC788D991F70A58900B37B04 /* Movie+Categories.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +99,7 @@
 		AC0CCF391F69EE44008F4FDE /* MovieRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieRegisterViewController.swift; sourceTree = "<group>"; };
 		AC0CCF3B1F69EE6B008F4FDE /* CategoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		AC0CCF3D1F69F7DE008F4FDE /* UIViewController+CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+CoreData.swift"; sourceTree = "<group>"; };
+		AC788D991F70A58900B37B04 /* Movie+Categories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Movie+Categories.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +197,7 @@
 				0778E3701E88D4DA00BF38C5 /* MovieTableViewCell.swift */,
 				AC0CCF391F69EE44008F4FDE /* MovieRegisterViewController.swift */,
 				AC0CCF3B1F69EE6B008F4FDE /* CategoriesViewController.swift */,
+				AC788D991F70A58900B37B04 /* Movie+Categories.swift */,
 			);
 			name = Movie;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				TargetAttributes = {
 					07780D481E6D860E00BC3630 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = W9ZU5QNY6L;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -318,6 +322,7 @@
 				0778E3711E88D4DB00BF38C5 /* MovieTableViewCell.swift in Sources */,
 				AC0CCF3C1F69EE6B008F4FDE /* CategoriesViewController.swift in Sources */,
 				070FD18F1E898D7D00418783 /* WebViewController.swift in Sources */,
+				AC788D9A1F70A58900B37B04 /* Movie+Categories.swift in Sources */,
 				AC0CCF381F69EAA2008F4FDE /* MoviesLib.xcdatamodeld in Sources */,
 				0703AD971E8553B2001FB5FD /* MoviesTableViewController.swift in Sources */,
 				AC0CCF3A1F69EE44008F4FDE /* MovieRegisterViewController.swift in Sources */,
@@ -447,9 +452,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = W9ZU5QNY6L;
 				INFOPLIST_FILE = MoviesLib/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ericbrito.MoviesLib;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rafaelarnosti.MoviesLib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -459,9 +465,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = W9ZU5QNY6L;
 				INFOPLIST_FILE = MoviesLib/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ericbrito.MoviesLib;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rafaelarnosti.MoviesLib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
